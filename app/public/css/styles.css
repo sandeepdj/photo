@@ -8,9 +8,41 @@ html,body{
 }
 
 .left-login{
-    background-color: #391D52;
+    background-color: #2F3A39;
 }
 
 .right-login{
-    background-color: #6a1ba6;
+    background-color: #d5d5d6;
+}
+.lgwrap{
+    padding-top: 20%;
+}
+
+.lgicon{
+    border: 1px solid #5f5f5f;
+    border-right: 0px;
+    /* width: 24px; */
+    text-align: center;
+    padding: 10px;
+}
+.lginput{
+    border: 1px solid;
+}
+.lginput:focus{
+    box-shadow: none;
+    border-color: green;
+}
+
+.lginput:focus  .lginput >.lgicon{
+    border-color: green;
+
+}
+
+.header{
+    background-color: #3ac9d6;
+    min-height: 50px;
+    
+}
+.logo{
+    background-color: #fff;
 }
