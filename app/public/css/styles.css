@@ -1,0 +1,16 @@
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+.height{
+    height: 100%;
+}
+
+.left-login{
+    background-color: #391D52;
+}
+
+.right-login{
+    background-color: #6a1ba6;
+}
