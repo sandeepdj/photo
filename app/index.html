@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Desktop APP</title>
-        <link rel="stylesheet" href="public/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="public/css/styles.css">
-    </head>
-    <body ng-app="myApp">
-       <ui-view></ui-view>
-    </body>
-    <script src="public/js/angular.min.js"></script>
-    <script src="public/js/angular-ui-router.min.js"></script>
-    <script src="app.js"></script>
+
+<head>
+    <title>Desktop APP</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/css/styles.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+
+</head>
+
+<body ng-app="myApp">
+    <ui-view></ui-view>
+</body>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+<script>
+    window.$ = window.jQuery = require('jquery');
+</script>
+
+
+<script src="public/js/angular.min.js"></script>
+
+<script src="public/js/angular-ui-router.min.js"></script>
+<script src="public/js/ui-bootstrap-tpls-0.14.1.js"></script>
+
+
+<script src="app.js"></script>
+
 </html>

@@ -1,1 +1,101 @@
-<h1>Dashboard</h1>
+<div class="container-fluid">
+    <div class="row topbar">
+        <div class="title-bar">
+            <h4>Laboratory</h4>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="box">
+            <div class="box-header">
+                <div class="col-md-2">
+                    <p class="input-group hideclear">
+                        <input type="text" class="form-control" uib-datepicker-popup ng-model="dateFrom" is-open="popup.opened" ng-init="getLabdashb(dt9)" datepicker-options="dateOptions" ng-required="true" ng-change="getDiagnolist(21);getLabdashb(dt9)" close-text="Close" />
+                        <span class="input-group-btn">
+                           <button type="button" class="btn btn-default" ng-click="open()"><i class="fa fa-calendar-alt"></i></button>
+                         </span>
+                    </p>
+                </div>
+                <div class="col-md-2">
+                    <p class="input-group hideclear">
+                        <input type="text" class="form-control" uib-datepicker-popup ng-model="dateTo" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" ng-init="getLabdashb(dt9)" ng-change="getDiagnolist(21);getLabdashb(dt9)" close-text="Close" />
+                        <span class="input-group-btn">
+                                   <button type="button" class="btn btn-default" ng-click="open2()"><i class="fa fa-calendar-alt"></i></button>
+                                 </span>
+                    </p>
+                </div>
+                <div class="col-md-2">
+                    <select class="form-control" ng-model="ptypesche" ng-init="ptypesche='OP';getDiagnolist(21)" ng-change="getDiagnolist(21)">
+                                   <option value="IP"> IP </option>
+                                   <option value="OP"> OP </option>
+                               </select>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <div class="inner-addon left-addon">
+
+                            <input class="form-control" placeholder="Search by patient, mobile" ng-model="q" type="text" ng-keyup="getDiagnolist(21)">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="box-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Type</th>
+                            <th>Bill No</th>
+                            <th>Bill Date</th>
+                            <th></th>
+                            <th>OP/IP Id</th>
+                            <th>PID</th>
+                            <th></th>
+                            <th>Patient</th>
+                            <th></th>
+                            <th>Age</th>
+                            <th>Contact No</th>
+                            <th>Ward</th>
+                            <th>Doctor</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="patient in pdigno">
+                            <td>{{$index+1}}</td>
+                            <td>{{patient.ptype}}</td>
+                            <td><a href="#!/app/laboratory/{{patient.billidh}}/{{patient.billidd}}/{{ptypesche}}">{{patient.billidh}} ({{patient.billidd}})</a></td>
+                            <td>{{patient.billdtd}}</td>
+                            <td>
+                                <img ng-show="patient.gender=='Male'" src="{{apiUrl}}lib/img/B.png">
+                                <img ng-show="patient.gender=='Female'" src="{{apiUrl}}lib/img/G.png">
+                            </td>
+                            <td>{{patient.prId}}</td>
+                            <td>{{patient.pid}}</td>
+                            <td>
+                                <img ng-src="{{apiUrl}}api/images/no.jpg" class="patphoto" style="height:30px;">
+                            </td>
+                            <td>{{patient.patnm}}</td>
+                            <td>
+                                <img ng-show="patient.gender=='M'" src="{{apiUrl}}lib/img/B.png">
+                                <img ng-show="patient.gender=='F'" src="{{apiUrl}}lib/img/G.png">
+                            </td>
+                            <td>{{patient.age}}</td>
+                            <td>{{patient.mobile1}}</td>
+                            <td>{{patient.bedno}}</td>
+                            <td>{{patient.empnm}} - {{patient.empmobile}}</td>
+
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
