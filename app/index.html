@@ -14,17 +14,24 @@
 <body ng-app="myApp">
     <ui-view></ui-view>
 </body>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-<script>
+<!-- <script src=""></script> -->
+<!-- <script>
     window.$ = window.jQuery = require('jquery');
-</script>
+</script> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" onload="window.$ = window.jQuery = module.exports;"></script> -->
 
+<script>window.$ = window.jQuery = require('jquery');</script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <script src="public/js/angular.min.js"></script>
 
+<script src="public/js/webcam.min.js"></script>
 <script src="public/js/angular-ui-router.min.js"></script>
 <script src="public/js/ui-bootstrap-tpls-0.14.1.js"></script>
 
+<!-- <script src"public/bower_components/webcamjs/webcam.js"></script>
+<script src"public/bower_components/ng-webcam/dist/ng-webcam.min.js"></script>
+ -->
 
 <script src="app.js"></script>
 

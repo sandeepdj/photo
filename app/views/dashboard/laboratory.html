@@ -52,32 +52,45 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" ng-click="cls()">&times;</button>
-                <h4 class="modal-title">Add Photos</h4>
+                <button type="button" class="close" data-dismiss="modal" ng-click="cls()"><i class="fa fa-times"></i></button>
+                <h4 class="modal-title">
+                    <span style="float:left">Add Photos</span>
+                        <select 
+                        style="width: 35%;float: left;"
+                        class="form-control"
+                        ng-model="selectedName"
+                        ng-options="color.label for color in devices"
+                          ng-change="getMedia(selectedName)"
+                         >
+                    <option value="">Choose Camera</option>
+                        </select> 
+                </h4>
             </div>
             <div class="modal-body">
                 <input type="text" ng-model="newtrid">
+                <div class="container-fluid">
+                    
+                    <div class="row">
+                        <div class="col-md-4">
+                                <button class="btn btn-snap" ng-click="captureSnap()"><i class="fa fa-camera"></i>
+
+                                    take picture</button>
+                                <div id="camdemo" style="width: 280px; height: 240px; text-align: center; margin: 0 auto;"></div>
+                        </div>
+                        <div class="col-md-4" style=" height: 240px;width: 280px; " ng-repeat="images in imagesList " ng-if="imagesList.length">
+                                <img src="{{images.imgUrl}}" style="width:100%">
+                        </div>
+                        </div>
+                      
+                </div>
+                    <div>
+                   </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-success"> Save </button>
+                <button type="submit" class="btn btn-success" ng-click="savePhotos(imagesList,newtrid)"> Save </button>
                 <button class="btn" ng-click="cls()">Cancel</button>
             </div>
         </div>
     </div>
 </div>
-
-<!-- <div class="modal-demo">
-    <script type="text/ng-template" id="myModalContent.html">
-        <div class="modal-header">
-            <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
-        </div>
-        <div class="modal-body" id="modal-body">
-            <input type="text" ng-model="newtrid">
-
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-        </div>
-    </script>
-</div> -->
+ 

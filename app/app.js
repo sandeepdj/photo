@@ -1,4 +1,4 @@
-var app = angular.module("myApp", ['ui.router', 'ui.bootstrap', 'ui.bootstrap.modal']);
+var app = angular.module("myApp", ['ui.router', 'ui.bootstrap', 'ui.bootstrap.modal','webcam']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
@@ -36,6 +36,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 
 app.controller("testController", ['$scope', '$state', '$http', '$filter', '$stateParams', '$uibModal', '$log', '$document', function($scope, $state, $http, $filter, $stateParams, $uibModal, $log, $document) {
+    var WebCamera = require("webcamjs");
+    var enabled = false;
 
     $scope.title = "Desktop Application";
     login = {};
@@ -120,24 +122,129 @@ app.controller("testController", ['$scope', '$state', '$http', '$filter', '$stat
         console.log("CLICKED");
         console.log(trid);
         $scope.newtrid = trid;
-        // $scope.photoModelfalse = false;
-        // $scope.photoModel = true;
-
-        jQuery('#photoModel').modal('show');
-
-
-
-        console.log($scope.photoModel);
-    }
+         $('#photoModel').modal('show');
+     }
 
     $scope.cls = function() {
-        jQuery('#photoModel').modal('hide');
+        $('#photoModel').modal('hide');
     }
 
 
+ 
+
+// List cameras and microphones.
+ 
+navigator.mediaDevices.enumerateDevices().then(function(devices) {
+    console.log(devices);
+    $scope.devices2 = devices;
+
+    $scope.devices = $filter('filter')($scope.devices2,{kind:'videoinput'});
+})
+.catch(function(err) {
+  console.log(err.name + ": " + err.message);
+});
+ 
+
+navigator.webkitGetUserMedia(
+    {
+      audio: false,
+      video: {
+        mandatory: {
+          chromeMediaSourceId: 'the camera source id obtained earlier',
+        }
+      }
+    },
+    stream => console.dir(stream),
+    error => console.log(error)
+  );
+
+
+  $scope.getMedia=function(mediaData){
+    console.log("mediaData");
+      console.log(mediaData);
+     // $scope.showme=true;
+     enabled=false;
+       if(!enabled){ // Start the camera !
+        enabled = true;
+        WebCamera.attach('#camdemo');
+        console.log("The camera has been started");
+      }else{ // Disable the camera !
+        enabled = false;
+        WebCamera.reset();
+       console.log("The camera has been disabled");
+      }
+  }
+
+
+$scope.imagesList=[];
+
+$scope.captureSnap=function(){
+    if(enabled){
+        WebCamera.snap(function(data_uri) {
+
+            $scope.imagesList.push({"imgUrl":data_uri});
+
+
+            $scope.newimg = data_uri;
+            var imageBuffer = processBase64Image(data_uri);
+                console.log(imageBuffer)
+            })
+
+        }else{
+            console.log("Please enable the camera first to take the snapshot !");
+
+        }
+}
+
+// return an object with the processed base64image
+function processBase64Image(dataString) {
+    var matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/),response = {};
+
+    if (matches.length !== 3) {
+        return new Error('Invalid input string');
+    }
+
+    response.type = matches[1];
+    response.data = new Buffer(matches[2], 'base64');
+
+    return response;
+}
 
 
 
+
+$scope.savePhotos=function(imgList,newtrid){
+
+var imgList1 =imgList;
+    var lbillidh = $stateParams.billidh;
+    var lbillidd = $stateParams.billidd;
+    var lbptype = $stateParams.ptype;
+
+
+ var imgList = {imgList:imgList};
+ var newtrid={newtrid:newtrid};
+ var lbillidh={lbillidh:lbillidh};
+ var lbillidd={lbillidd:lbillidd};
+ var lbptype={lbptype:lbptype};
+
+var postData =  angular.extend(imgList,newtrid );
+var postData =  angular.extend(postData,lbillidh );
+var postData =  angular.extend(postData,lbillidd );
+var postData =  angular.extend(postData,lbptype );
+console.log(postData);
+
+    if(imgList1.length){
+          $http.post("http://localhost:8080/2017/old/salesManager/api/uploadMe",{postData:postData}).then(function(response){
+            console.log(response);
+                console.log("SUccessFull");
+        })
+    }
+
+}
+
+
+
+ 
 
 
 

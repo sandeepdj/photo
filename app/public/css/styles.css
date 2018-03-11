@@ -118,3 +118,16 @@ body {
 .close {
     display: none !important;
 }
+
+.btn-snap{
+    position: absolute;
+    /* background-color: rgba(214, 147, 147, 0); */
+    /* color: green; */
+    border: 1px solid #3ac9d6;
+    padding: 7px;
+    background: #3ac9d6;
+    color: #fff;
+    top: 79%;
+    z-index: 999;
+    border-radius: 0px;
+}

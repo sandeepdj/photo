@@ -1,7 +1,7 @@
 {
-  "name": "electron-quick-start",
+  "name": "geopulse",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "The Hospital Information System",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -9,13 +9,13 @@
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
-    "Electron",
-    "quick",
+    "Hospital",
+    "GEOPULSE",
     "start",
-    "tutorial",
-    "demo"
+    "MANAGEMENT",
+    "SANDEEP"
   ],
-  "author": "SANDEP <sandeepdj11@gmail.com>",
+  "author": "SANDEEP JADHAV <sandeepdj11@gmail.com>",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "~1.8.2",
@@ -31,10 +31,14 @@
       "target": [
         "AppImage",
         "deb"
-      ]
+      ],
+      "icon": "build/64X64.png"
+ 
     }
   },
   "dependencies": {
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "path": "^0.12.7",
+    "webcamjs": "^1.0.24"
   }
 }
