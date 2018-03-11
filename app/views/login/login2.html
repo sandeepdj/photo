@@ -1,0 +1,41 @@
+<div class="container-fluid height  bgimg">
+    <div class="row height">
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="logo-box" style="border-right:1px solid #9BA7A5;margin-top:20%;margin-left:30%;min-height:300px;">
+                    <img ng-src="public/images/lglogo.png" class="lglogo" style="width:200px;margin-top:40%">
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class=" right-login height">
+            <div class="card">
+                <div class="card-block">
+                    <!-- <img ng-src="public/images/lglogo.png" class="lglogo"> -->
+                    <div class="lgwrap">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <!-- <div class="input-group"> -->
+                                    <!-- <span class="input-group-addon lgicon" id="basic-addon1">@</span> -->
+                                    <input type="text" class="form-control lginput" placeholder="Username" aria-describedby="basic-addon1" ng-model="login.username">
+                                <!-- </div> -->
+                            </div>
+                            <div class="form-group">
+                                <!-- <div class="input-group"> -->
+                                    <!-- <span class="input-group-addon lgicon" id="basic-addon1">@</span> -->
+                                    <input type="password" class="form-control lginput" placeholder="Password" aria-describedby="basic-addon1" ng-model="login.password">
+                                <!-- </div> -->
+                            </div>
+                            <div class="form-group">
+
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-login btn-lg btn-block" ng-click="doLogin()"> Login</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>

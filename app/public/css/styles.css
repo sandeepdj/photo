@@ -7,8 +7,11 @@ body {
     background-color: #eff3f6;
     font-family: 'Source Sans Pro', sans-serif;
 }
-
 .card {
+    padding: 25% 15%;
+
+}
+/* .card {
     position: relative;
     display: -webkit-box;
     display: -webkit-flex;
@@ -22,24 +25,28 @@ body {
     background-color: #fff;
     border: 1px solid rgba(0, 0, 0, .125);
     border-radius: .25rem;
-}
+} */
 
 .height {
     height: 100%;
 }
 
+.bgimg{
+    background-color: #2A363F;
+ }
+
 .loginbg {
     background-color: #eff3f6;
 }
 
-.right-login {
+/* .right-login {
     position: fixed;
     top: 50%;
     left: 50%;
     margin-top: -195px;
     margin-left: -195px;
     width: 350px;
-}
+} */
 
 .lgicon {
     border: 1px solid #5f5f5f;
@@ -48,7 +55,8 @@ body {
 }
 
 .lginput {
-    border: 1px solid;
+    border: 2px solid #6ED9A0;
+    height: 40px;
 }
 
 .lgwrap {
@@ -63,11 +71,11 @@ body {
 
 .lginput:focus {
     box-shadow: none;
-    border-color: green;
+    border-color: #6ED9A0;
 }
 
 .lginput:focus .lginput>.lgicon {
-    border-color: green;
+    border-color: #6ED9A0;
 }
 
 .header {
@@ -95,7 +103,10 @@ body {
     border: 1px solid #2ea1f8;
     color: #2ea1f8;
 }
-
+.btn-login{
+    background-color: #6ED9A0;
+    color: #fff;
+}
 .box {
     background-color: #fff;
     width: 96%;
